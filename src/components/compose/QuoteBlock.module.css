@@ -1,0 +1,140 @@
+.quote {
+  position: relative;
+  margin: var(--space-1) 0;
+  padding: var(--space-1) var(--space-1) var(--space-2) var(--space-3);
+  border-left: 3px solid var(--color-outline);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: #f4f6f8;
+  animation: quote-in var(--motion-base) var(--ease);
+  transition: background-color var(--motion-fast) var(--ease);
+}
+
+@keyframes quote-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 32px;
+}
+
+.name {
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.date {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+.actions {
+  display: flex;
+  gap: 2px;
+  margin-left: auto;
+}
+
+.text {
+  max-width: 72ch;
+  color: var(--color-text-secondary);
+  font-size: var(--text-md);
+  line-height: 21px;
+  white-space: pre-line;
+}
+
+/* ---------- In drafts: the quote behaves like one character of text ---------- */
+
+.editable {
+  cursor: pointer; /* clicking a draft quote shows its source in the thread */
+}
+
+.editable:focus {
+  outline: none;
+}
+
+/* Full-height blinking caret at the quote's start or end */
+.caretStart::before,
+.caretEnd::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-text);
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+.caretStart::before {
+  left: -8px;
+}
+
+.caretEnd::after {
+  right: -6px;
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Selected with Shift+Arrow, like selected text */
+.selected {
+  background: rgba(11, 87, 208, 0.18);
+}
+
+/* Hovered in the draft: darkens together with its highlight in the thread */
+.hovered {
+  background: #e6eaf0;
+}
+
+/* In a sent email: the whole quote opens its source */
+.clickable {
+  cursor: pointer;
+}
+
+.tooltipWrap {
+  display: flex;
+  align-self: stretch;
+}
+
+.tooltipWrap > .quote {
+  flex: 1;
+}
+
+/* Backspace confirmation: a darker layer over the quote until it's removed or kept.
+   Clicks pass through, so the × still works and any other click keeps the quote. */
+.armed {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: rgba(218, 220, 224, 0.72);
+  pointer-events: none;
+  animation: quote-in var(--motion-fast) var(--ease);
+}
+
+.armedMain {
+  color: var(--color-text);
+  font-size: var(--text-md);
+  font-weight: 500;
+}
+
+.armedHint {
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+}

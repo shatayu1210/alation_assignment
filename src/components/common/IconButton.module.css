@@ -1,0 +1,29 @@
+.button {
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background-color var(--motion-fast) var(--ease);
+}
+
+.button:hover {
+  background: var(--color-hover);
+}
+
+.md {
+  width: 40px;
+  height: 40px;
+}
+
+.sm {
+  width: 32px;
+  height: 32px;
+}
+
+.accent {
+  color: var(--color-accent);
+}

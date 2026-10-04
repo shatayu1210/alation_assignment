@@ -1,0 +1,83 @@
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+/* The thread scrolls inside the panel; the toolbar stays put above it.
+   position: relative makes email offsets measurable from this container. */
+.scroll {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Same padding in every mode, so switching in and out of Follow never shifts the summary */
+.summaryZone {
+  padding: var(--space-1) var(--space-5) var(--space-3) 72px;
+  background: var(--color-surface);
+  transition: box-shadow var(--motion-base) var(--ease);
+}
+
+/* Follow mode: the summary (and the disclaimer under it) sticks to the top */
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+}
+
+/* Divider shadow only once emails are scrolling underneath */
+.stuck {
+  box-shadow: 0 10px 10px -10px rgba(60, 64, 67, 0.3);
+}
+
+/* "Back to your reply" after jumping to a quote's source from a sent email */
+.backPill {
+  position: absolute;
+  bottom: 88px;
+  left: 50%;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 36px;
+  padding: 0 var(--space-4) 0 var(--space-3);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-tooltip);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 500;
+  box-shadow: 0 2px 6px 2px rgba(60, 64, 67, 0.15), 0 1px 2px rgba(60, 64, 67, 0.3);
+  transform: translateX(-50%);
+  cursor: pointer;
+  animation: pill-in var(--motion-base) var(--ease);
+}
+
+.backPill:hover {
+  background: #2f3133;
+}
+
+.backPillFading {
+  opacity: 0;
+  transition: opacity 400ms var(--ease);
+  pointer-events: none;
+}
+
+@keyframes pill-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

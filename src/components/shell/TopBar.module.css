@@ -1,0 +1,157 @@
+.bar {
+  grid-area: top;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-width: 0;
+  padding: 0 var(--space-2);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  width: 232px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1000px) {
+  .brand {
+    width: auto;
+  }
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-left: var(--space-1);
+  color: var(--color-text-secondary);
+  font-family: var(--font-display);
+  font-size: 22px;
+}
+
+.logo {
+  width: auto;
+  height: 28px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 0 1 720px;
+  min-width: 160px;
+  height: 48px;
+  padding: 0 var(--space-1);
+  border-radius: var(--radius-pill);
+  background: var(--color-search);
+  color: var(--color-text-secondary);
+  transition:
+    background-color var(--motion-fast) var(--ease),
+    box-shadow var(--motion-fast) var(--ease);
+}
+
+/* Like Gmail: a soft shadow on hover, a white raised bar while typing */
+.search:hover {
+  box-shadow: 0 1px 1px rgba(65, 69, 73, 0.3), 0 1px 3px 1px rgba(65, 69, 73, 0.15);
+}
+
+.search:focus-within {
+  background: var(--color-surface);
+  box-shadow: 0 1px 1px rgba(65, 69, 73, 0.3), 0 1px 3px 1px rgba(65, 69, 73, 0.15);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-text);
+  font-size: var(--text-lg);
+}
+
+.input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+/* Demo switch (Material 3 switch) */
+.demoSwitch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+  padding: var(--space-1) var(--space-2);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text);
+  font-size: var(--text-md);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.demoSwitch:hover {
+  background: var(--color-hover);
+}
+
+.track {
+  position: relative;
+  width: 52px;
+  height: 32px;
+  border: 2px solid var(--color-outline);
+  border-radius: var(--radius-pill);
+  background: #e3e3e3;
+  transition:
+    background-color var(--motion-base) var(--ease),
+    border-color var(--motion-base) var(--ease);
+}
+
+.thumb {
+  position: absolute;
+  top: 50%;
+  left: 6px;
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-outline);
+  color: var(--color-accent);
+  transform: translateY(-50%);
+  transition:
+    left var(--motion-base) var(--ease),
+    width var(--motion-base) var(--ease),
+    height var(--motion-base) var(--ease),
+    background-color var(--motion-base) var(--ease);
+}
+
+.on {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+}
+
+.on .thumb {
+  left: 22px;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-left: auto;
+}
+
+.account {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-left: var(--space-1);
+}

@@ -1,0 +1,82 @@
+.item {
+  list-style: none;
+}
+
+.point {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: var(--space-1) var(--space-3) var(--space-1) 28px;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text);
+  font-size: var(--text-md);
+  line-height: 22px;
+  text-align: left;
+}
+
+/* Bullet dot, matching Gmail's AI Overview list */
+.point::before {
+  content: '';
+  position: absolute;
+  top: 13px;
+  left: 12px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-text);
+}
+
+.date {
+  margin-right: var(--space-2);
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-left: 6px;
+  padding: 0 var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-size: var(--text-sm);
+  vertical-align: 1px;
+}
+
+.pdf {
+  color: #c5221f;
+}
+
+/* Timeline points: the same faint fill Gmail uses for hover, for both
+   hovering a point and hovering (or scrolling to) its email */
+.interactive {
+  cursor: pointer;
+  transition:
+    background-color var(--motion-base) var(--ease),
+    box-shadow var(--motion-base) var(--ease);
+}
+
+/* Draw the keyboard focus ring inside the point, so the summary's scroll area
+   doesn't clip its left and right edges */
+.interactive:focus-visible {
+  outline-offset: -2px;
+}
+
+.interactive:hover,
+.preview {
+  background: var(--color-hover);
+}
+
+/* The point for the email being followed: a light blue pill, clearly stronger than the
+   grey hover and the summary background, but light enough to read black text on */
+.focused,
+.focused:hover {
+  border-radius: var(--radius-lg);
+  background: #dce8fc;
+  /* Thin, darker blue edge so the active point stands out without relying on color shade alone */
+  box-shadow: inset 0 0 0 1px #5b8fe6;
+}

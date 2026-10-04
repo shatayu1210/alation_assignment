@@ -1,0 +1,8 @@
+node_modules
+dist
+.DS_Store
+*.local
+
+# Gmail logo is a Google trademark: kept locally only, not committed.
+# Without it, the app falls back to a plain mail icon and a generic tab icon.
+public/gmail-logo.png

@@ -1,0 +1,49 @@
+.wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.tip {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--color-tooltip);
+  color: #fff;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 16px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-fast) var(--ease);
+}
+
+.start {
+  left: 0;
+  transform: none;
+}
+
+.end {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+/* To the left of the control, vertically centered */
+.left {
+  top: 50%;
+  left: auto;
+  right: calc(100% + 8px);
+  transform: translateY(-50%);
+}
+
+/* Short delay before showing, like Gmail, so tooltips don't flash while moving the mouse */
+.wrap:hover .tip,
+.wrap:has(:focus-visible) .tip {
+  opacity: 1;
+  transition-delay: 400ms;
+}

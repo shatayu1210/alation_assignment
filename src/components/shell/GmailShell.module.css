@@ -1,0 +1,31 @@
+.shell {
+  display: grid;
+  grid-template-columns: 256px minmax(0, 1fr) 56px;
+  grid-template-rows: 64px minmax(0, 1fr);
+  grid-template-areas:
+    'top top top'
+    'nav main rail';
+  height: 100vh;
+  min-width: 0;
+  transition: grid-template-columns var(--motion-base) var(--ease);
+}
+
+/* Icon-only navigation rail */
+.collapsed {
+  grid-template-columns: 72px minmax(0, 1fr) 56px;
+}
+
+.main {
+  grid-area: main;
+  min-width: 0;
+  min-height: 0;
+  padding-bottom: var(--space-4);
+}
+
+/* Very narrow: drop the side-panel rail so the thread keeps the space */
+@media (max-width: 720px) {
+  .shell,
+  .collapsed {
+    grid-template-columns: 72px minmax(0, 1fr) 0;
+  }
+}

@@ -1,0 +1,128 @@
+/* The shell is the blue-grey surface. It's a small pill when closed and the full card
+   when open; ThreadView never sees the morph, it's handled here. */
+.shell {
+  border-radius: var(--radius-lg);
+  background: var(--color-summary);
+}
+
+.shellClosed {
+  width: fit-content;
+}
+
+.shellOpen {
+  border-radius: 20px;
+}
+
+.morphing {
+  overflow: hidden;
+  transition:
+    width 280ms var(--ease),
+    height 280ms var(--ease),
+    border-radius 280ms var(--ease);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 44px;
+  padding: 0 var(--space-3) 0 var(--space-4);
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  white-space: nowrap;
+  cursor: pointer;
+  animation: fade-in var(--motion-base) var(--ease);
+  transition: background-color var(--motion-fast) var(--ease);
+}
+
+.pill:hover {
+  background: rgba(68, 71, 70, 0.06);
+}
+
+.card {
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-4);
+  animation: fade-in var(--motion-base) var(--ease);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.title {
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.body {
+  position: relative;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  transition: max-height 280ms var(--ease);
+}
+
+/* Fade the bottom edge only while there's more to scroll to */
+.faded {
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 28px), transparent);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 2px;
+  animation: fade-in var(--motion-base) var(--ease);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  margin: var(--space-1) 0 calc(-1 * var(--space-2));
+}
+
+.disclaimer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-1);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  animation: fade-in var(--motion-base) var(--ease);
+}
+
+.disclaimer a {
+  color: var(--color-text);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.disclaimer a:hover {
+  text-decoration: underline;
+}
+
+.feedback {
+  display: flex;
+  gap: 2px;
+}

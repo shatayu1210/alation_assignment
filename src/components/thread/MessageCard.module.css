@@ -1,0 +1,166 @@
+.card {
+  padding: var(--space-4) var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-divider);
+  transition: background-color var(--motion-base) var(--ease);
+}
+
+/* Short tint after opening this email from the summary or the draft: fades by itself */
+.flash {
+  background: #e8f0fe;
+  animation: tint-out 600ms var(--ease) 4.4s forwards;
+}
+
+@keyframes tint-out {
+  to {
+    background: transparent;
+  }
+}
+
+/* Tint while a jump from a sent email's quote is active; fades when the reader moves on */
+.tinted {
+  background: #e8f0fe;
+}
+
+.tintFading {
+  background: transparent;
+  transition: background-color 400ms var(--ease);
+}
+
+/* Quoted text: a soft highlight that reads as one continuous passage, even across lines */
+.quoteMark {
+  padding: 1px 0;
+  border-radius: 3px;
+  background: rgba(168, 199, 250, 0.35);
+  color: inherit;
+  /* Dotted underline, so quoted text doesn't rely on color alone */
+  text-decoration: underline dotted #5b8fe6;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  box-decoration-break: slice;
+  -webkit-box-decoration-break: slice;
+  user-select: none; /* already quoted: can't be selected again */
+  transition: background-color 200ms var(--ease);
+}
+
+/* In the writer's own draft: linked to its quote in the reply box */
+.draftMark {
+  cursor: pointer;
+}
+
+.markHover {
+  background: rgba(124, 172, 248, 0.6);
+}
+
+.markFading {
+  background: transparent;
+  text-decoration-color: transparent;
+  transition: background-color 400ms var(--ease);
+}
+
+/* The email being followed from the summary. A distinct light blue (not the near-white
+   page color), so the thread still reads as one container, like Gmail's selected rows. */
+.followed {
+  background: #ebf2fe;
+}
+
+.body > blockquote {
+  align-self: stretch;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+  align-items: start;
+  column-gap: var(--space-4);
+}
+
+.who {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sender {
+  color: var(--color-text);
+  font-size: var(--text-md);
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.email {
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+}
+
+.to {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+  line-height: 18px;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: -6px;
+}
+
+.date {
+  margin-right: var(--space-2);
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+  white-space: nowrap;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin: var(--space-4) 0 0 56px;
+  max-width: 72ch;
+  color: var(--color-text);
+  font-size: var(--text-md);
+  line-height: 22px;
+}
+
+.body p {
+  white-space: pre-line;
+}
+
+.attachment {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.pdf {
+  color: #c5221f;
+}
+
+.trimmed {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 14px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-chip);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}

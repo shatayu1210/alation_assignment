@@ -1,0 +1,45 @@
+.fold {
+  position: relative;
+  height: 48px;
+  margin: var(--space-1) 0;
+}
+
+/* The two thin lines Gmail draws across the fold */
+.fold::before,
+.fold::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: var(--space-4);
+  height: 1px;
+  background: var(--color-divider);
+}
+
+.fold::before {
+  top: calc(50% - 2px);
+}
+
+.fold::after {
+  top: calc(50% + 2px);
+}
+
+.circle {
+  position: absolute;
+  top: 4px;
+  left: var(--space-4);
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-divider);
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  font-size: var(--text-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--motion-fast) var(--ease);
+}
+
+.circle:hover {
+  background: #f1f3f4;
+}

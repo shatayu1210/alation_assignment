@@ -1,0 +1,61 @@
+/* Design tokens: Gmail's light theme (Material 3), measured from screenshots.
+   Components only use these variables, never raw values. */
+:root {
+  /* Surfaces */
+  --color-page: #f6f8fc;
+  --color-surface: #ffffff;
+  --color-search: #e9ebee; /* neutral grey, a step darker than the page so it doesn't blend in */
+  --color-compose: #c2e7ff;
+  --color-nav-active: #d3e3fd;
+  --color-hover: rgba(68, 71, 70, 0.08);
+  --color-chip: #e1e3e1;
+  --color-summary: #edf2fa;
+
+  /* Text */
+  --color-text: #1f1f1f;
+  --color-text-secondary: #444746;
+  --color-text-muted: #5f6368;
+
+  /* Lines and accents */
+  --color-divider: #e3e3e3;
+  --color-outline: #747775;
+  --color-accent: #0b57d0;
+  --color-accent-soft: #d3e3fd;
+  --color-tooltip: #444746;
+  --color-skeleton: #e8eaed;
+  --color-skeleton-shine: #f4f5f6;
+
+  /* AI accent (Gemini-style blue to green), used only on AI content */
+  --gradient-ai: linear-gradient(90deg, #4285f4 0%, #3c9ed6 50%, #34a853 100%);
+
+  /* Type */
+  --font-display: 'Google Sans', Roboto, Arial, sans-serif;
+  --font-text: Roboto, 'Google Sans Text', Arial, sans-serif;
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-md: 14px;
+  --text-lg: 16px;
+  --text-xl: 22px;
+
+  /* Space (4px scale) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* Shape */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* Elevation */
+  --shadow-raised: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+
+  /* Motion */
+  --motion-fast: 150ms;
+  --motion-base: 200ms;
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}

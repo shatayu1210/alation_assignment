@@ -33,11 +33,8 @@ The same person can be in all three setups in one day, so what they need depends
 
 **Evidence**
 
-1. Google's own help page warns that Gemini "may suggest inaccurate or inappropriate information," but the summary gives no way to check a point against its source. The same page mentions reminders for tasks with a due date, with nothing on who each task belongs to. (support.google.com/mail/answer/16561387)
-2. Reviewers note that summaries can miss context, and that trusting them without checking the original emails is a gamble. (eesel.ai; SlashGear, "I Tried Gemini For My Email. Here's Why I Don't Trust It")
-3. Security researchers showed that hidden text in an email can make the Gemini summary display a fake warning. Linking each point to its source would let people check what the summary claims. (0DIN, reported by BleepingComputer and Yahoo Tech)
-4. In a Gated survey, 82% of people said they miss important emails because their inboxes are bogged down (HR Dive). In a Workfront survey, 55% of workers said following conversations through long threads is a problem (CNBC).
-5. In my own testing, the AI Overview appeared automatically at the top of some threads, and to-dos only showed up in AI Inbox, not inside the thread. On one real thread, the overview said the recruiter was "noting potential role requires no sponsorship," when she had actually said the company isn't in a position to sponsor. With no link back to the source message, there's no quick way to catch a mistake like that.
+1. Google's own help page warns that Gemini "may suggest inaccurate or inappropriate information," but the summary gives no way to check a point against its source. The same page mentions reminders for tasks with a due date, with nothing on who each task belongs to. ([Google Help Page](https://support.google.com/mail/answer/16561387))
+2. Microsoft's Work Trend Index Special Report revealed that knowledge workers now receive an average of 117 emails daily and face notifications every two minutes. ([Microsoft News Center Report](https://news.microsoft.com/de-ch/2025/06/17/new-microsoft-study-reveals-the-rise-of-the-infinite-workday-40-of-employees-check-email-before-6-a-m-evening-meetings-up-16/))
 
 ### Problem 2: Replying to several points in a thread is clunky
 
@@ -48,9 +45,8 @@ The same person can be in all three setups in one day, so what they need depends
 
 **Evidence**
 
-1. Gmail once graduated a "Quote selected text" feature, where highlighting text and hitting Reply quoted only that text. Google moved it back to Labs after 50 days because people kept quoting text they had selected by accident. (The Next Web)
-2. People still ask how to reply inline or quote part of a message in Gmail, and later reported the old Labs feature had stopped working. (Gmail Users Google Group; gtricks.com comments, 2017 and 2019)
-3. In my own testing, selecting text and clicking Reply cleared the selection and opened a blank draft, and there's no way to quote from several messages at once.
+1. Gmail once graduated a "Quote selected text" feature, where highlighting text and hitting Reply quoted only that text. Google moved it back to Labs after 50 days because people kept quoting text they had selected by accident. ([The Next Web](https://thenextweb.com/news/google-retracts-gmails-new-quote-selected-text-feature-and-puts-it-back-into-labs-after-50-days))
+2. Users continue to ask on official Google help forums how to reply inline or quote specific parts of a message, noting that managing full thread histories manually is tedious. ([Gmail Help Community Thread](https://support.google.com/mail/thread/4022280/how-do-i-reply-inline?hl=en))
 
 ### Other problems I found
 
@@ -137,7 +133,7 @@ Both solutions follow one idea: every summary point and every quote stays connec
 
 **Tradeoffs I accepted**
 
-1. The rich quote styling only exists in Gmail. Other email apps would see a standard quote.
+1. Rich interactive quote cards exist within Gmail. For recipients using external clients like Microsoft Outlook or Apple Mail, quotes gracefully fall back to standard HTML blockquotes with clear sender, date, and time headers so readability is preserved everywhere.
 2. The draft is built from text and quote blocks, not a full rich-text editor. That keeps the prototype simple and reliable.
 
 ### Consistency and details

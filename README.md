@@ -1,6 +1,6 @@
 # Gmail Threading Redesign
 
-> **Looking for the design notes?** The reasoning behind these two solutions, the users, the problems, and the tradeoffs, is in **[AssignmentNotes.md](AssignmentNotes.md)**.
+> **Looking for the design notes?** The reasoning behind these two solutions, the users, the problems, and the tradeoffs, is in **[EngineeringNotes.md](EngineeringNotes.md)**.
 
 A React prototype of two improvements to Gmail's threading experience.
 
@@ -60,7 +60,7 @@ Turn on **Changes applied** first.
 
 ## Design decisions in short
 
-The full reasoning, alternatives, and tradeoffs are in [AssignmentNotes.md](AssignmentNotes.md). The main calls:
+The full reasoning, alternatives, and tradeoffs are in [EngineeringNotes.md](EngineeringNotes.md). The main calls:
 
 1. **Quick by default, detailed on request.** Topics stays as today's summary. Timeline and Follow are one click deeper, behind a single switch.
 2. **Follow instead of a pop-up.** The source email opens in place, right under its summary point, so reading never jumps to an overlay.
